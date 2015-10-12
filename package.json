@@ -1,16 +1,19 @@
 {
   "version": "0.0.0",
   "name": "ember-cli-comment-defeature",
-  "description": "Adds the ability to strip out features via the use of code comments.",
+  "description": "An ember-cli addon for allowing you to specify lines or blocks of code as features to be enabled or disabled dynamically.",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "mocha"
   },
-  "repository": "",
+  "repository": "https://github.com/dbazile/ember-cli-comment-defeature",
   "engines": {
     "node": ">= 4.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/dbazile/ember-cli-comment-defeature/issues"
   },
   "author": "David Bazile",
   "license": "MIT",
@@ -24,6 +27,5 @@
   "dependencies": {
     "broccoli-filter": "^1.2.2"
   },
-  "ember-addon": {
-  }
+  "ember-addon": {}
 }
