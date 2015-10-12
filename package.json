@@ -1,6 +1,6 @@
 {
-  "version": "0.0.0",
   "name": "ember-cli-comment-defeature",
+  "version": "1.0.0",
   "description": "An ember-cli addon for allowing you to specify lines or blocks of code as features to be enabled or disabled dynamically.",
   "directories": {
     "test": "test"
