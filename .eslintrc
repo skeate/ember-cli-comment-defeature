@@ -1,0 +1,39 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "rules": {
+    "complexity": [1, 5],
+    "comma-dangle": 1,
+    "curly": 2,
+    "eol-last": 2,
+    "eqeqeq": 2,
+    "no-alert": 2,
+    "no-caller": 2,
+    "no-constant-condition": 2,
+    "no-debugger": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-empty": 1,
+    "no-extra-parens": 0,
+    "no-extra-semi": 1,
+    "no-func-assign": 2,
+    "no-inner-declarations": 2,
+    "no-lonely-if": 2,
+    "no-const-assign": 2,
+    "no-shadow": 1,
+    "no-shadow-restricted-names": 1,
+    "no-sparse-arrays": 1,
+    "no-unreachable": 2,
+    "no-unreachable": 2,
+    "no-undef": 2,
+    "no-unused-vars": 2,
+    "no-useless-concat": 1,
+    "no-use-before-define": [2, "nofunc"],
+    "prefer-const": 1,
+    "valid-typeof": 2,
+    "quotes": [1, "single", "avoid-escape"]
+  }
+}
