@@ -6,6 +6,7 @@
     "test": "test"
   },
   "scripts": {
+    "test": "mocha"
   },
   "repository": "",
   "engines": {
@@ -14,12 +15,14 @@
   "author": "David Bazile",
   "license": "MIT",
   "devDependencies": {
-    "ember-cli": "1.13.8",
+    "broccoli-test-helpers": "0.0.8",
+    "mocha": "~2.3.0"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
+    "broccoli-filter": "^1.2.2"
   },
   "ember-addon": {
   }
