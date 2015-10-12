@@ -1,25 +1,149 @@
-# Ember-cli-whiteout
+# ember-cli-comment-defeature
 
-This README outlines the details of collaborating on this Ember addon.
+An ember-cli addon for allowing you to specify lines or blocks of code as features to be enabled or disabled dynamically.
+
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```shell
+ember install ember-cli-comment-defeature
+```
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+In your app's `ember-cli-build.js`, define `commentDefeature` options on your app instance as such:
 
-## Running Tests
+```javascript
+const app = new EmberApp(defaults, {
+  commentDefeature: {
+    features: {
+      'shiny': false,
+      'mapping.wgs84': process.env.BUILD_PROFILE !== 'customer1'
+    }
+  }
+});
+```
 
-* `ember test`
-* `ember test --server`
+Then you're ready to start decorating your code with feature descriptors.
 
-## Building
+### In JavaScript
 
-* `ember build`
+#### Before
+```javascript
+export default Ember.Component.extend({
+  tagName: 'span',
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+  /// feature:shiny
+  shiny: Ember.inject.service(),
+
+  /// <feature:shiny>
+  demonstrateShininess: Ember.observer('model', function () {
+    this.get('shiny').makeNoise('Totes shiny');
+  })
+  /// </feature:shiny>
+});
+```
+
+#### After
+
+```javascript
+export default Ember.Component.extend({
+  tagName: 'span',
+
+/// feature:shiny
+///   shiny: Ember.inject.service(),
+
+/// <feature:shiny>
+///   demonstrateShininess: Ember.observer('model', function () {
+///     this.get('shiny').makeNoise('Totes shiny')
+///   })
+/// </feature:shiny>
+});
+```
+
+
+### In Handlebars
+
+#### Before
+
+```handlebars
+{{!-- feature:shiny --}}
+{{shiny-feature model=shiny}}
+
+<h1>Some Page</h1>
+
+{{!-- <feature:shiny> --}}
+<div>
+  <h2>Shiny is enabled!</h2>
+  <p>This text will only be visible if feature "shiny" is enabled.</p>
+</div>
+{{!-- </feature:shiny> --}}
+```
+
+#### After
+
+```handlebars
+{{!-- feature:shiny --}}
+{{!-- {{shiny-feature model=shiny}} --}}
+
+<h1>Some Page</h1>
+
+{{!-- <feature:shiny> --}}
+{{!-- <div> --}}
+{{!--   <h2>Shiny is enabled!</h2> --}}
+{{!--   <p>This text will only be visible if feature "shiny" is enabled.</p> --}}
+{{!-- </div> --}}
+{{!-- </feature:shiny> --}}
+```
+
+### In CSS/SCSS
+
+#### Before
+
+```css
+/* feature:shiny */
+.shiny-one-liner {}
+
+.some-container {
+  background-color: gold;
+  /* <feature:shiny> */
+  color: red;
+  border-color: lime;
+  /* </feature:shiny> */
+}
+```
+
+#### After
+
+```css
+/* feature:shiny */
+/* .shiny-one-liner {} */
+
+.some-container {
+  background-color: gold;
+/* <feature:shiny> */
+/*   color: red; */
+/*   border-color: lime; */
+/* </feature:shiny> */
+}
+```
+
+
+## Options
+
+### commentDefeature.features: `object`
+
+A key-value hash of your features.  Defaults to `{}`.
+
+### commentDefeature.extensions: `string[]`
+
+An array of file extensions that will be processed.  Defaults to `['js', 'hbs', 'css', 'scss']`.
+
+
+## Credits
+
+Inspired by the following projects:
+
+- [ember-cli-defeatureify](https://github.com/jkarsrud/ember-cli-defeatureify)
+- [broccoli-defeatureify](https://github.com/sindresorhus/broccoli-defeatureify)
+- [mimosa-defeature](https://github.com/peluja1012/mimosa-defeature)
