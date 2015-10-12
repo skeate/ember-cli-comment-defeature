@@ -1,0 +1,12 @@
+.alpha {
+  /* feature:alpha */
+  $favorite-color: green;
+}
+.bravo {
+  /* <feature:bravo> */
+  $favorite-number: 8675309;
+  background-color: orange;
+  border-color: orange;
+  color: orange;
+  /* </feature:bravo> */
+}
