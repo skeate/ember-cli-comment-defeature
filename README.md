@@ -2,6 +2,8 @@
 
 An ember-cli addon for allowing you to specify lines or blocks of code as features to be enabled or disabled dynamically.
 
+[![Build Status](https://travis-ci.org/dbazile/ember-cli-comment-defeature.svg?branch=master)](https://travis-ci.org/dbazile/ember-cli-comment-defeature)
+
 
 ## Installation
 
