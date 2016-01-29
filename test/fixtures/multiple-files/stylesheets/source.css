@@ -5,6 +5,7 @@
 .bravo {
   /* <feature:bravo> */
   background-color: orange;
+  /* some harmless comment */
   border-color: orange;
   color: orange;
   /* </feature:bravo> */

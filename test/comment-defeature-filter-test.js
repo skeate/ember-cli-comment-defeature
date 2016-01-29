@@ -67,6 +67,7 @@ const EXPECTED_CSS = `\
 .bravo {
 /* <feature:bravo> */
 /*   background-color: orange; */
+/*   -- some harmless comment -- */
 /*   border-color: orange; */
 /*   color: orange; */
 /* </feature:bravo> */
@@ -81,6 +82,7 @@ const EXPECTED_SCSS = `\
 .bravo {
 /* <feature:bravo> */
 /*   $favorite-number: 8675309; */
+/*   -- some harmless comment -- */
 /*   background-color: orange; */
 /*   border-color: orange; */
 /*   color: orange; */
@@ -92,7 +94,9 @@ const EXPECTED_HANDLEBARS = `\
 alpha
 {{!-- <feature:bravo> --}}
 {{!-- {{bravo}} --}}
+{{!-- {{! inline comment, shouldn't affect anything }} --}}
 {{!-- {{bravo}} --}}
+{{!-- -- block comment, could mess things up -- --}}
 {{!-- {{bravo}} --}}
 {{!-- </feature:bravo> --}}
 `;
